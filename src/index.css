@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 64.2%;
+  font-family: "Ubuntu", sans-serif;
+}
+:root {
+  /* Primary Colors */
+  --MarineBlue: hsl(213, 96%, 18%);
+  --PurplishBlue: hsl(243, 100%, 62%);
+  --PastelBlue: hsl(228, 100%, 84%);
+  --LightBlue: hsl(206, 94%, 87%);
+  --StrawberryRed: hsl(354, 84%, 57%);
+
+  /* Neutral Colors */
+  --CoolGray: hsl(231, 11%, 63%);
+  --LightGray: hsl(229, 24%, 87%);
+  --Magnolia: hsl(217, 100%, 97%);
+  --Alabaster: hsl(231, 100%, 99%);
+  --White: hsl(0, 0%, 100%);
+}
+body {
+  background-color: var(--Magnolia);
+}
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+/* Set the container as a grid */
+.App {
+  display: grid;
+  grid-template-columns: 1fr 3fr; /* Divide container into two columns */
+  /* grid-template-rows: 2fr 1fr; Divide container into two rows with a 2:1 ratio */
+  gap: 10rem; /* Add some spacing between grid items */
+  height: 80%; /* Set a fixed height for demonstration purposes */
+  width: 60%;
+  background-color: var(--White);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+/* Apply styles to the left side */
+.sideBar {
+  /* background-color: #ffcc99; */
+  height: 100%;
+  background-image: url(../public/assets/images/bg-sidebar-desktop.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 20px;
+  border-radius: 1rem;
+  width: 20rem;
+}
+
+.stepsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.steps {
+  display: flex;
+  gap: 1rem;
+}
+.circle {
+  width: 3rem; /* Adjust the width and height to make the circle larger or smaller */
+  height: 3rem; /* Should be the same as the width to create a perfect circle */
+  border-radius: 50%; /* Set the border-radius to 50% to create a circle */
+  font-size: 1.5rem;
+  border: 1px solid var(--LightBlue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--White);
+}
+.active .circle {
+  background-color: var(--LightBlue);
+  color: #000;
+}
+
+.stepLevelContent span {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--White);
+}
+
+.stepLevelContent p {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--White);
+}
+/* styles for the left side ends */
+
+/* Set the right side as a nested grid */
+.content {
+  display: grid;
+  grid-template-rows: 8fr 1fr; /* Divide right side into two rows with a 2:1 ratio */
+}
+
+/* Apply styles to the top right cell */
+.contentChange {
+  background-color: #99ccff; /* Some color to differentiate the top right cell */
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 3rem;
+  margin-bottom: 1rem;
+}

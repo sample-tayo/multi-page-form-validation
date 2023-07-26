@@ -1,0 +1,53 @@
+.page-01-text h4 {
+  font-size: 2.5rem;
+  margin-top: 4.5rem;
+  padding-bottom: 1rem;
+}
+
+.page-01-text p {
+  font-size: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  color: var(--MarineBlue);
+  margin-bottom: 5px;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid var(--LightGray);
+  border-radius: 5px;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  width: 90%;
+  font-size: 16px;
+  color: var(--MarineBlue);
+}
+
+input:focus {
+  border-color: var(--LightBlue);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+input::placeholder {
+  color: var(--CoolGray);
+}
+
+input:disabled {
+  background-color: var(--Alabaster);
+  opacity: 0.7;
+}
+.error {
+  color: var(--StrawberryRed);
+  font-size: 1rem;
+  text-align: center;
+}

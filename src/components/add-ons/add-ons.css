@@ -1,0 +1,84 @@
+.page-01-text h4 {
+  font-size: 2.5rem;
+  margin-top: 4.5rem;
+  padding-bottom: 1rem;
+}
+
+.page-01-text p {
+  font-size: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+/* Add some general styles */
+.item-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.add-on-item {
+  border: 1px solid var(--CoolGray);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+.add-on-item:hover {
+  background-color: var(--LightBlue);
+}
+
+.add-on-item label {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 4rem;
+}
+.add-on-label p {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.add-on-label span {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.add-on-price {
+  margin-left: auto;
+}
+.add-on-price span {
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+/* Style the checkboxes */
+.checkbox-wrapper {
+  display: inline-block;
+  position: relative;
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
+}
+
+.checkbox-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-custom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #888;
+  border-radius: 4px;
+}
+
+.checkbox-input:checked + .checkbox-custom {
+  background-color: #007bff;
+  border-color: #007bff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='9' viewBox='0 0 12 9'%3E%3Cpath fill='none' stroke='%23FFF' stroke-width='2' d='m1 4 3.433 3.433L10.866 1'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+}
+
+/* Align the price text */
+.add-on-label::after {
+  vertical-align: super;
+}

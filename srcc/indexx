@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 64.2%;
+  font-family: "Ubuntu", sans-serif;
+}
+:root {
+  /* Primary Colors */
+  --MarineBlue: hsl(213, 96%, 18%);
+  --PurplishBlue: hsl(243, 100%, 62%);
+  --PastelBlue: hsl(228, 100%, 84%);
+  --LightBlue: hsl(206, 94%, 87%);
+  --StrawberryRed: hsl(354, 84%, 57%);
+
+  /* Neutral Colors */
+  --CoolGray: hsl(231, 11%, 63%);
+  --LightGray: hsl(229, 24%, 87%);
+  --Magnolia: hsl(217, 100%, 97%);
+  --Alabaster: hsl(231, 100%, 99%);
+  --White: hsl(0, 0%, 100%);
+}
+body {
+  background-color: var(--Magnolia);
+}
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.App {
+  display: flex;
+  width: 65%;
+  background-color: var(--Alabaster);
+  justify-content: space-between;
+  gap: 10rem;
+  padding: 1rem;
+  padding-right: 10rem;
+  border-radius: 1rem;
+}
+.side-bar {
+  flex: 1;
+  background-image: url(../public/assets/images/bg-sidebar-desktop.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  /* margin: 0 auto; */
+  padding: 20px;
+  /* height: 100%; */
+  /* width: 100%; */
+}
+.info {
+  flex: 3;
+}
+
+/* Style the submit button */
+button {
+  padding: 12px 20px;
+  background-color: var(--PurplishBlue);
+  color: var(--White);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* On hover styles for the submit button */
+button:hover {
+  background-color: var(--LightBlue);
+}
+.btn-flex {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+
+/* .active {
+  color: #fff;
+} */
