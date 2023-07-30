@@ -133,6 +133,7 @@ function Button({ visibility, textColor, bgColor, onClick, children }) {
     fontSize: "16px",
     cursor: "pointer",
     transition: "background-color 0.3s ease",
+    // height: "3rem",
   };
 
   const buttonStyles = Object.assign({}, defaultStyles, {

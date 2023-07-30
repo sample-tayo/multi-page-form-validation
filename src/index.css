@@ -32,11 +32,19 @@ body {
   height: 100vh;
 }
 /* Set the container as a grid */
-.App {
+/* .App {
   display: grid;
-  grid-template-columns: 1fr 3fr; /* Divide container into two columns */
-  /* grid-template-rows: 2fr 1fr; Divide container into two rows with a 2:1 ratio */
-  gap: 10rem; /* Add some spacing between grid items */
+  grid-template-columns: 1fr 3fr; 
+  gap: 10rem; 
+  height: 80%; 
+  width: 60%;
+  background-color: var(--White);
+  border-radius: 1rem;
+  padding: 1.5rem;
+} */
+.App {
+  display: flex;
+  gap: 10rem; /* Add some spacing between flex items */
   height: 80%; /* Set a fixed height for demonstration purposes */
   width: 60%;
   background-color: var(--White);
@@ -51,7 +59,7 @@ body {
   background-image: url(../public/assets/images/bg-sidebar-desktop.svg);
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 20px;
+  padding: 2rem;
   border-radius: 1rem;
   width: 20rem;
 }
@@ -112,4 +120,86 @@ body {
   justify-content: space-between;
   padding: 0 3rem;
   margin-bottom: 1rem;
+}
+/* styling for the h4 and paragraph that appearn on all render steps, keep it here so as not to repeat in all css file */
+.page-01-text h4 {
+  font-size: 2.5rem;
+  margin-top: 4.5rem;
+  padding-bottom: 1rem;
+}
+
+.page-01-text p {
+  font-size: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+@media screen and (max-width: 640px) {
+  .App {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: var(--LightBlue);
+    padding: 0;
+    position: relative;
+    gap: 0;
+  }
+  .stepsContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    margin-top: 3rem;
+    /* align-items: center; */
+    justify-content: center;
+  }
+  .stepLevelContent {
+    display: none;
+  }
+  .sideBar {
+    width: 100%;
+    border-radius: 0rem;
+    background-image: url(../public/assets/images/bg-sidebar-mobile.svg);
+    background-size: 100%;
+    padding: 0;
+    flex: 30%;
+    height: auto;
+  }
+  .content {
+    flex: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .content .active {
+    background-color: var(--White);
+    width: 90%;
+    border-radius: 1rem;
+    padding: 2rem;
+    position: absolute;
+    top: -12rem;
+  }
+
+  .content > * {
+    flex: 8;
+  }
+
+  .content > :last-child {
+    flex: 1;
+  }
+  .page-01-text h4 {
+    margin-top: 2rem;
+  }
+  .btnContainer {
+    position: absolute;
+    bottom: 0;
+    /* margin-top: auto; */
+    background-color: var(--White);
+    width: 100%;
+    margin-bottom: 0;
+    padding: 2rem 3rem;
+  }
+  .page-01-text h4 {
+    margin-top: 2rem;
+  }
 }
