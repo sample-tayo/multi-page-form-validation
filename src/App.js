@@ -6,9 +6,30 @@ import Summary from "./components/summary/summary";
 
 export default function App() {
   const [step, setStep] = useState(1);
-  const [selectedAddOns, setSelectedAddOns] = useState([]);
   const [activePlan, setActivePlan] = useState("Arcade");
   const [activeTab, setActiveTab] = useState("Monthly");
+  const [selectedAddOns, setSelectedAddOns] = useState([]);
+
+  const addOnsData = [
+    {
+      name: "Online service",
+      description: "Access to multiplayer games",
+      price: `${activeTab === "Monthly" ? "1" : "10"}`,
+      id: "onlineService",
+    },
+    {
+      name: "Larger storage",
+      description: "Extra 1TB of cloud save",
+      price: `${activeTab === "Monthly" ? "2" : "20"}`,
+      id: "largerStorage",
+    },
+    {
+      name: "Customizable Profile",
+      description: "Custom theme on your profile",
+      price: `${activeTab === "Monthly" ? "2" : "20"}`,
+      id: "customizableProfile",
+    },
+  ];
 
   function handlePrevious() {
     if (step > 1) setStep((s) => s - 1);
@@ -18,6 +39,19 @@ export default function App() {
     if (step < 4) {
       setStep((s) => s + 1);
     }
+  }
+
+  function handleAddOnSelect(addOn) {
+    setSelectedAddOns((prevSelectedAddOns) => {
+      const isAlreadySelected = prevSelectedAddOns.some(
+        (item) => item === addOn
+      );
+      if (isAlreadySelected) {
+        return prevSelectedAddOns.filter((item) => item !== addOn);
+      } else {
+        return [...prevSelectedAddOns, addOn];
+      }
+    });
   }
 
   const renderStep = () => {
@@ -37,7 +71,9 @@ export default function App() {
         return (
           <AddOns
             selectedAddOns={selectedAddOns}
-            onAddOnSelect={handleAddOnSelect}
+            onSelectAddOn={handleAddOnSelect}
+            addOnsData={addOnsData}
+            activeTab={activeTab}
           />
         );
       case 4:
@@ -47,25 +83,14 @@ export default function App() {
             activeTab={activeTab}
             step={step}
             setStep={setStep}
+            selectedAddOns={selectedAddOns}
+            addOnsData={addOnsData}
           />
         );
       default:
         return null;
     }
   };
-
-  function handleAddOnSelect(addOn) {
-    setSelectedAddOns((prevSelectedAddOns) => {
-      const isAlreadySelected = prevSelectedAddOns.some(
-        (item) => item.id === addOn.id
-      );
-      if (isAlreadySelected) {
-        return prevSelectedAddOns.filter((item) => item.id !== addOn.id);
-      } else {
-        return [...prevSelectedAddOns, addOn];
-      }
-    });
-  }
 
   return (
     <div className="App">

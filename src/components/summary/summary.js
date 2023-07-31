@@ -1,28 +1,57 @@
 import React from "react";
 import "./summary.css";
 
-export default function Summary({ activePlan, activeTab, setStep }) {
+export default function Summary({
+  activePlan,
+  activeTab,
+  setStep,
+  selectedAddOns,
+  addOnsData,
+}) {
   const handleChangePlanButton = () => {
     setStep(2);
   };
 
-  const getPrice = (tab, plan) => {
-    if (tab === "Monthly" && plan === "Arcade") {
+  function getPriceById(addOnId) {
+    const addOn = addOnsData.find((item) => item.id === addOnId);
+    return addOn ? addOn.price : "Price not found";
+  }
+
+  // Calculate the total price
+  const getTotalPrice = () => {
+    const addOnPrices = selectedAddOns.map((addOn) => {
+      const addOnData = addOnsData.find((item) => item.id === addOn);
+      return addOnData ? parseFloat(getPriceById(addOn)) : 0;
+    });
+
+    const totalAddOnPrice = addOnPrices.reduce(
+      (total, price) => total + price,
+      0
+    );
+
+    const planPrice = parseFloat(getPrice(activeTab, activePlan));
+
+    return (totalAddOnPrice + planPrice).toFixed(2);
+  };
+
+  function getPrice(tab, plan) {
+    const formattedTab = tab.toLowerCase();
+    if (formattedTab === "monthly" && plan === "Arcade") {
       return "9";
-    } else if (tab === "Yearly" && plan === "Arcade") {
+    } else if (formattedTab === "yearly" && plan === "Arcade") {
       return "90";
-    } else if (tab === "Monthly" && plan === "Advanced") {
+    } else if (formattedTab === "monthly" && plan === "Advanced") {
       return "12";
-    } else if (tab === "Yearly" && plan === "Advanced") {
+    } else if (formattedTab === "yearly" && plan === "Advanced") {
       return "120";
-    } else if (tab === "Monthly" && plan === "Pro") {
+    } else if (formattedTab === "monthly" && plan === "Pro") {
       return "15";
-    } else if (tab === "Yearly" && plan === "Pro") {
+    } else if (formattedTab === "yearly" && plan === "Pro") {
       return "150";
     } else {
       return "";
     }
-  };
+  }
 
   return (
     <div>
@@ -44,11 +73,37 @@ export default function Summary({ activePlan, activeTab, setStep }) {
 
           <p>
             ${getPrice(activeTab, activePlan)}/
-            {activeTab === "monthly" ? "mo" : "yr"}
+            {activeTab === "Monthly" ? "mo" : "yr"}
           </p>
         </div>
 
         <div className="line"></div>
+        <div className="selectedAddOn">
+          <ul>
+            {selectedAddOns.map((addOn) => {
+              const addOnData = addOnsData.find((item) => item.id === addOn);
+              return (
+                <li key={addOn}>
+                  <p style={{ fontSize: "1.5rem", color: "var(--CoolGray)" }}>
+                    {addOnData ? addOnData.name : ""}
+                  </p>
+                  <p style={{ fontSize: "1.5rem", fontWeight: "600" }}>
+                    +${getPriceById(addOn)}/
+                    {activeTab === "Monthly" ? "mo" : "yr"}
+                  </p>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+      <div className="total">
+        <p style={{ fontSize: "1.5rem", color: "var(--CoolGray)" }}>
+          Total ({activeTab === "Monthly" ? "per month" : "per year"})
+        </p>
+        <p style={{ fontSize: "1.5rem", fontWeight: "600" }}>
+          ${getTotalPrice()}/{activeTab === "Monthly" ? "mo" : "yr"}
+        </p>
       </div>
     </div>
   );

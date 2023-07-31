@@ -57,7 +57,7 @@ export default function SelectPlan({
                 <span>Arcade</span>
                 <span className="price">
                   ${getPriceForArcade(activeTab)}/
-                  {activeTab === "monthly" ? "mo" : "yr"}
+                  {activeTab === "Monthly" ? "mo" : "yr"}
                 </span>
                 <span>{activeTab !== "Monthly" && "2 months free"}</span>
               </span>
@@ -80,7 +80,7 @@ export default function SelectPlan({
                 <span>Advanced</span>
                 <span className="price">
                   ${getPriceForAdvance(activeTab)}/
-                  {activeTab === "monthly" ? "mo" : "yr"}
+                  {activeTab === "Monthly" ? "mo" : "yr"}
                 </span>
                 <span>{activeTab !== "Monthly" && "2 months free"}</span>
               </span>
@@ -103,7 +103,7 @@ export default function SelectPlan({
                 <span>Pro</span>
                 <span className="price">
                   ${getPriceForPro(activeTab)}/
-                  {activeTab === "monthly" ? "mo" : "yr"}
+                  {activeTab === "Monthly" ? "mo" : "yr"}
                 </span>
                 <span>{activeTab !== "Monthly" && "2 months free"}</span>
               </span>
