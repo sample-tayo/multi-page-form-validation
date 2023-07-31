@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import "./select-plan.css";
 
-export default function SelectPlan() {
-  const [activeTab, setActiveTab] = useState("Monthly");
-  const [activePlan, setActivePlan] = useState("Arcade");
+export default function SelectPlan({
+  activePlan,
+  activeTab,
+  setActivePlan,
+  setActiveTab,
+}) {
+  // const [activeTab, setActiveTab] = useState("Monthly");
+  // const [activePlan, setActivePlan] = useState("Arcade");
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);

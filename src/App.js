@@ -6,8 +6,9 @@ import Summary from "./components/summary/summary";
 
 export default function App() {
   const [step, setStep] = useState(1);
-  const [selectedPlan, setSelectedPlan] = useState(null);
   const [selectedAddOns, setSelectedAddOns] = useState([]);
+  const [activePlan, setActivePlan] = useState("Arcade");
+  const [activeTab, setActiveTab] = useState("Monthly");
 
   function handlePrevious() {
     if (step > 1) setStep((s) => s - 1);
@@ -26,8 +27,10 @@ export default function App() {
       case 2:
         return (
           <SelectPlan
-            selectedPlan={selectedPlan}
-            onPlanSelect={setSelectedPlan}
+            activePlan={activePlan}
+            activeTab={activeTab}
+            setActivePlan={setActivePlan}
+            setActiveTab={setActiveTab}
           />
         );
       case 3:
@@ -40,8 +43,10 @@ export default function App() {
       case 4:
         return (
           <Summary
-            selectedPlan={selectedPlan}
-            selectedAddOns={selectedAddOns}
+            activePlan={activePlan}
+            activeTab={activeTab}
+            step={step}
+            setStep={setStep}
           />
         );
       default:
