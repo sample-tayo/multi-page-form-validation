@@ -13,7 +13,7 @@
   align-items: flex-start;
   position: relative;
   padding: 2px;
-  background-color: #ebebec;
+  background-color: var(--MarineBlue);
   border-radius: 9px;
   margin: 10px 20px 0px 20px;
   width: 100%;
@@ -188,5 +188,22 @@
     width: 100%;
     margin: 0;
     justify-content: flex-start;
+  }
+  .tab-container {
+    width: 70%;
+  }
+  .tab {
+    width: 50% !important;
+    height: 28px;
+    position: relative !important;
+    z-index: 99;
+    background-color: transparent !important;
+    border: 0;
+    outline: none;
+    flex: none;
+    align-self: stretch;
+    flex-grow: 1;
+    cursor: pointer;
+    font-weight: 500;
   }
 }

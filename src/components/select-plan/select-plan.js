@@ -3,21 +3,28 @@ import "./select-plan.css";
 
 export default function SelectPlan() {
   const [activeTab, setActiveTab] = useState("Monthly");
+  const [activePlan, setActivePlan] = useState("Arcade");
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
+    console.log(tab);
+  };
+
+  const handlePlanClick = (plan) => {
+    setActivePlan(plan);
+    console.log(plan);
   };
 
   const getPriceForArcade = (tab) => {
-    return tab === "Monthly" ? "$9/mo" : "$90/year";
+    return tab === "Monthly" ? "9" : "90";
   };
 
   const getPriceForAdvance = (tab) => {
-    return tab === "Monthly" ? "$12/mo" : "$120/year";
+    return tab === "Monthly" ? "12" : "120";
   };
 
   const getPriceForPro = (tab) => {
-    return tab === "Monthly" ? "$15/mo" : "$150/year";
+    return tab === "Monthly" ? "15" : "150";
   };
 
   return (
@@ -30,42 +37,69 @@ export default function SelectPlan() {
       <div className="optionContainer">
         <div class="radio-inputs">
           <label>
-            <input class="radio-input" type="radio" name="engine" />
+            <input
+              class="radio-input"
+              type="radio"
+              name="plan"
+              checked={activePlan === "Arcade"}
+              onChange={() => handlePlanClick("Arcade")}
+            />
             <span class="radio-tile">
               <span class="radio-icon">
                 <img src="./assets/images/icon-arcade.svg" alt="" />
               </span>
               <span class="radio-label">
                 <span>Arcade</span>
-                <span className="price">{getPriceForArcade(activeTab)}</span>
+                <span className="price">
+                  ${getPriceForArcade(activeTab)}/
+                  {activeTab === "monthly" ? "mo" : "yr"}
+                </span>
                 <span>{activeTab !== "Monthly" && "2 months free"}</span>
               </span>
             </span>
           </label>
 
           <label>
-            <input class="radio-input" type="radio" name="engine" />
+            <input
+              class="radio-input"
+              type="radio"
+              name="plan"
+              checked={activePlan === "Advanced"}
+              onChange={() => handlePlanClick("Advanced")}
+            />
             <span class="radio-tile">
               <span class="radio-icon">
                 <img src="./assets/images/icon-advanced.svg" alt="" />
               </span>
               <span class="radio-label">
                 <span>Advanced</span>
-                <span className="price">{getPriceForAdvance(activeTab)}</span>
+                <span className="price">
+                  ${getPriceForAdvance(activeTab)}/
+                  {activeTab === "monthly" ? "mo" : "yr"}
+                </span>
                 <span>{activeTab !== "Monthly" && "2 months free"}</span>
               </span>
             </span>
           </label>
 
           <label>
-            <input class="radio-input" type="radio" name="engine" />
+            <input
+              class="radio-input"
+              type="radio"
+              name="plan"
+              checked={activePlan === "Pro"}
+              onChange={() => handlePlanClick("Pro")}
+            />
             <span class="radio-tile">
               <span class="radio-icon">
                 <img src="./assets/images/icon-pro.svg" alt="" />
               </span>
               <span class="radio-label">
                 <span>Pro</span>
-                <span className="price">{getPriceForPro(activeTab)}</span>
+                <span className="price">
+                  ${getPriceForPro(activeTab)}/
+                  {activeTab === "monthly" ? "mo" : "yr"}
+                </span>
                 <span>{activeTab !== "Monthly" && "2 months free"}</span>
               </span>
             </span>
