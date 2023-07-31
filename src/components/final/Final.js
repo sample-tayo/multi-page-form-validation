@@ -1,7 +1,7 @@
 import React from "react";
-import "./summary.css";
+import "./final.css";
 
-export default function Summary() {
+export default function Final() {
   return (
     <div>
       <div className="thank-you">

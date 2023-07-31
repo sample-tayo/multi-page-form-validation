@@ -16,7 +16,7 @@ const validate = (values) => {
   let errors = {};
 
   if (!values.name) {
-    errors.name = "Required";
+    errors.name = "Name cannot be empty";
   }
 
   if (!values.email) {
@@ -61,7 +61,9 @@ export default function PersonalInfo() {
               placeholder="e.g. Stephen King"
               required
             />
-            <ErrorMessage name="name" />
+            <ErrorMessage name="name">
+              {(errMsg) => <div className="error">{errMsg}</div>}
+            </ErrorMessage>
           </div>
           <div className="form-group">
             <label htmlFor="email">Email:</label>
@@ -72,7 +74,9 @@ export default function PersonalInfo() {
               placeholder="e.g. stephenking@lorem.com"
               required
             />
-            <ErrorMessage name="email" />
+            <ErrorMessage name="email">
+              {(errMsg) => <div className="error">{errMsg}</div>}
+            </ErrorMessage>
           </div>
           <div className="form-group">
             <label htmlFor="phoneNumber">Phone Number:</label>
@@ -83,7 +87,9 @@ export default function PersonalInfo() {
               placeholder="e.g. +1 234 567 890"
               required
             />
-            <ErrorMessage name="phoneNumber" />
+            <ErrorMessage name="phoneNumber">
+              {(errMsg) => <div className="error">{errMsg}</div>}
+            </ErrorMessage>
           </div>
         </Form>
       </div>

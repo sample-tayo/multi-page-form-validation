@@ -3,6 +3,7 @@ import PersonalInfo from "./components/personal-info/personal-info";
 import SelectPlan from "./components/select-plan/select-plan";
 import AddOns from "./components/add-ons/add-ons";
 import Summary from "./components/summary/summary";
+import Final from "./components/final/Final";
 
 export default function App() {
   const [step, setStep] = useState(1);
@@ -38,7 +39,13 @@ export default function App() {
   function handleNext() {
     if (step < 4) {
       setStep((s) => s + 1);
+    } else if (step === 4) {
+      handleSubmit();
     }
+  }
+
+  function handleSubmit() {
+    setStep(5);
   }
 
   function handleAddOnSelect(addOn) {
@@ -87,6 +94,8 @@ export default function App() {
             addOnsData={addOnsData}
           />
         );
+      case 5:
+        return <Final />;
       default:
         return null;
     }
@@ -100,19 +109,21 @@ export default function App() {
       <div className="content">
         <div className={step >= 1 ? "active" : ""}>{renderStep()}</div>
 
-        <div className="btnContainer">
-          <Button
-            onClick={handlePrevious}
-            visibility={step === 1 ? "hidden" : ""}
-            bgColor="transparent"
-            textColor="var(--CoolGray)"
-          >
-            Go Back
-          </Button>
-          <Button onClick={handleNext}>
-            {step <= 3 ? "Next Step" : "Confirm"}
-          </Button>
-        </div>
+        {step !== 5 && (
+          <div className="btnContainer">
+            <Button
+              onClick={handlePrevious}
+              visibility={step === 1 ? "hidden" : ""}
+              bgColor="transparent"
+              textColor="var(--CoolGray)"
+            >
+              Go Back
+            </Button>
+            <Button onClick={handleNext}>
+              {step === 4 ? "Confirm" : "Next Step"}
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );
