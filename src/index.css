@@ -44,9 +44,9 @@ body {
 } */
 .App {
   display: flex;
-  gap: 10rem; /* Add some spacing between flex items */
-  height: 80%; /* Set a fixed height for demonstration purposes */
-  width: 60%;
+  /* gap: 10rem;  */
+  height: 80vh; /* Set a fixed height for demonstration purposes */
+  width: 60vw;
   background-color: var(--White);
   border-radius: 1rem;
   padding: 1.5rem;
@@ -61,7 +61,8 @@ body {
   background-repeat: no-repeat;
   padding: 2rem;
   border-radius: 1rem;
-  width: 20rem;
+  /* width: 20rem; */
+  flex: 30%;
 }
 
 .stepsContainer {
@@ -106,6 +107,8 @@ body {
 
 /* Set the right side as a nested grid */
 .content {
+  flex: 70%;
+  margin-left: 5rem;
   display: grid;
   grid-template-rows: 8fr 1fr; /* Divide right side into two rows with a 2:1 ratio */
 }
@@ -126,11 +129,13 @@ body {
   font-size: 2.5rem;
   margin-top: 4.5rem;
   padding-bottom: 1rem;
+  color: var(--MarineBlue);
 }
 
 .page-01-text p {
   font-size: 1.5rem;
   margin-bottom: 3.5rem;
+  color: var(--CoolGray);
 }
 
 @media screen and (max-width: 640px) {
@@ -170,6 +175,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    margin-left: 0;
   }
   .content .active {
     background-color: var(--White);

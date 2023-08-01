@@ -87,7 +87,13 @@ export default function Summary({
                   <p style={{ fontSize: "1.5rem", color: "var(--CoolGray)" }}>
                     {addOnData ? addOnData.name : ""}
                   </p>
-                  <p style={{ fontSize: "1.5rem", fontWeight: "600" }}>
+                  <p
+                    style={{
+                      fontSize: "1.3rem",
+                      fontWeight: "500",
+                      color: "var(--MarineBlue)",
+                    }}
+                  >
                     +${getPriceById(addOn)}/
                     {activeTab === "Monthly" ? "mo" : "yr"}
                   </p>
@@ -101,7 +107,13 @@ export default function Summary({
         <p style={{ fontSize: "1.5rem", color: "var(--CoolGray)" }}>
           Total ({activeTab === "Monthly" ? "per month" : "per year"})
         </p>
-        <p style={{ fontSize: "1.5rem", fontWeight: "600" }}>
+        <p
+          style={{
+            fontSize: "1.7rem",
+            fontWeight: "600",
+            color: "var(--PurplishBlue)",
+          }}
+        >
           ${getTotalPrice()}/{activeTab === "Monthly" ? "mo" : "yr"}
         </p>
       </div>

@@ -21,7 +21,18 @@ export default function AddOns({
 
       <div className="item-container">
         {addOnsData.map((addOn) => (
-          <div key={addOn.id} className="add-on-item">
+          <div
+            key={addOn.id}
+            className="add-on-item"
+            style={{
+              backgroundColor: selectedAddOns.includes(addOn.id)
+                ? "var(--Magnolia)"
+                : "",
+              borderColor: selectedAddOns.includes(addOn.id)
+                ? "var(--PurplishBlue)"
+                : "",
+            }}
+          >
             <label>
               <span className="checkbox-wrapper">
                 <input
@@ -35,12 +46,16 @@ export default function AddOns({
               </span>
 
               <span className="add-on-label">
-                <p>{addOn.name}</p>
-                <span>{addOn.description}</span>
+                <p style={{ color: "var(--MarineBlue)" }}>{addOn.name}</p>
+                <span style={{ color: "var(--CoolGray)" }}>
+                  {addOn.description}
+                </span>
               </span>
 
               <span className="add-on-price">
-                <span>
+                <span
+                  style={{ color: "var(--PurplishBlue)", fontSize: "1.4rem" }}
+                >
                   +${addOn.price}/{activeTab === "Monthly" ? "mo" : "yr"}
                 </span>
               </span>

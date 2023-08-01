@@ -55,11 +55,25 @@ export default function SelectPlan({
               </span>
               <span class="radio-label">
                 <span>Arcade</span>
-                <span className="price">
+                <span
+                  className="price"
+                  style={{
+                    color: "var(--CoolGray)",
+                    fontSize: "1.5rem",
+                    fontWeight: "500",
+                  }}
+                >
                   ${getPriceForArcade(activeTab)}/
                   {activeTab === "Monthly" ? "mo" : "yr"}
                 </span>
-                <span>{activeTab !== "Monthly" && "2 months free"}</span>
+                <span
+                  style={{
+                    fontSize: "1.3rem",
+                    fontWeight: "500",
+                  }}
+                >
+                  {activeTab !== "Monthly" && "2 months free"}
+                </span>
               </span>
             </span>
           </label>
@@ -78,11 +92,25 @@ export default function SelectPlan({
               </span>
               <span class="radio-label">
                 <span>Advanced</span>
-                <span className="price">
+                <span
+                  className="price"
+                  style={{
+                    color: "var(--CoolGray)",
+                    fontSize: "1.5rem",
+                    fontWeight: "500",
+                  }}
+                >
                   ${getPriceForAdvance(activeTab)}/
                   {activeTab === "Monthly" ? "mo" : "yr"}
                 </span>
-                <span>{activeTab !== "Monthly" && "2 months free"}</span>
+                <span
+                  style={{
+                    fontSize: "1.3rem",
+                    fontWeight: "500",
+                  }}
+                >
+                  {activeTab !== "Monthly" && "2 months free"}
+                </span>
               </span>
             </span>
           </label>
@@ -101,11 +129,25 @@ export default function SelectPlan({
               </span>
               <span class="radio-label">
                 <span>Pro</span>
-                <span className="price">
+                <span
+                  className="price"
+                  style={{
+                    color: "var(--CoolGray)",
+                    fontSize: "1.5rem",
+                    fontWeight: "500",
+                  }}
+                >
                   ${getPriceForPro(activeTab)}/
                   {activeTab === "Monthly" ? "mo" : "yr"}
                 </span>
-                <span>{activeTab !== "Monthly" && "2 months free"}</span>
+                <span
+                  style={{
+                    fontSize: "1.3rem",
+                    fontWeight: "500",
+                  }}
+                >
+                  {activeTab !== "Monthly" && "2 months free"}
+                </span>
               </span>
             </span>
           </label>

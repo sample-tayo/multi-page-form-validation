@@ -25,9 +25,10 @@
 
 .summaryPlan .change {
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.3rem;
   text-decoration: underline;
   font-weight: 300;
+  color: var(--CoolGray);
 }
 
 .line {

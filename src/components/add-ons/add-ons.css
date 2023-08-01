@@ -11,7 +11,7 @@
   padding: 2rem;
 }
 .add-on-item:hover {
-  background-color: var(--LightBlue);
+  background-color: var(--Magnolia);
 }
 
 .add-on-item label {
@@ -31,10 +31,10 @@
 .add-on-price {
   margin-left: auto;
 }
-.add-on-price span {
+/* .add-on-price span {
   font-size: 1.7rem;
   font-weight: 500;
-}
+} */
 
 /* Style the checkboxes */
 .checkbox-wrapper {
